@@ -1,6 +1,7 @@
 package Method;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -17,6 +18,8 @@ public class FilePathFinder {
 	private mFileFilter filter;
 	
 	public FilePathFinder(){
+	URL f = this.getClass().getClassLoader().getResource("FileList");
+	File file = new File(f.getPath());
 	}
 	
 	public String[] deepSearch(String fromDir, String[] names, String[] except, Consumer c){

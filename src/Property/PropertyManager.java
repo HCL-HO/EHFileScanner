@@ -4,25 +4,24 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Properties;
 
 public class PropertyManager {
-	private File propFile;
+	private InputStream FIS;
+	private final String configName = "config.properties";
+	private Properties prop;
 	
 	public PropertyManager(){
-		propFile = new File("EHFileScanner\\config.properties");
-		System.out.println("Reading from: "+ propFile.getAbsolutePath());
-	}
-	
-	public PropertyManager(String path){
-		propFile = new File(path);
-		System.out.println("Reading from: "+ propFile.getAbsolutePath());
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		FIS = loader.getResourceAsStream(configName);
+		System.out.println("Reading from: "+ configName);
 	}
 	
 	public Properties getProperties(){
-		Properties prop = new Properties();
+		prop = new Properties();
 		try {
-			FileInputStream FIS = new FileInputStream(propFile);
 			prop.load(FIS);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

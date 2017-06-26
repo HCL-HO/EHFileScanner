@@ -15,10 +15,6 @@ public class SettingManager implements PropertiesKey{
 		prop = new PropertyManager().getProperties();
 	}
 	
-	public SettingManager(String path){
-		prop = new PropertyManager(path).getProperties();
-	}
-	
 	public void setProperties(String key, String value){
 		if(prop.get(key)!= null){
 			prop.setProperty(key, value);
