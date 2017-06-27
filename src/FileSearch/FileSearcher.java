@@ -12,13 +12,14 @@ import java.util.Collection;
 import java.util.List;
 
 import FileFilter.mFileFilter;
-import FileSearch.WriteLog.WriterObject;
+import Property.PropertiesKey;
 import Property.PropertyManager;
+import SearchRecord.WriteLog.WriterObject;
 
 
 public class FileSearcher{
 	private List<File> allFileList = new ArrayList<File>();
-//	private WriterObject Logger;
+	private WriterObject Logger;
 	private boolean batchJobFinish = false;
 	private String[] emptyStringArrays = new String[]{};
 	private boolean keepFileList = false;
@@ -27,30 +28,26 @@ public class FileSearcher{
 	
 	public FileSearcher(mFileFilter filter){
 		this.mFilter = filter;
-//		PropertyManager PM = new PropertyManager();
-//		keepFileList = (PM.getProperties().get("KeepFileList")=="ON")? true : false;
-//		Logger = new WriteLog().init();
-//		Logger.clearLog();
 	}
 	
-	public void loadLastFileSearch(){
-		System.out.println("----------------------------loadLastFileSearch---------------------------------");
-		try {
-			BufferedReader BR = new BufferedReader(new FileReader(new File("FileList")));
-			String line = BR.readLine();
-			while(line != null){
-				System.out.println("Initial Files: "+ line);
-				if(line!=null){
-					allFileList.add(new File(line));
-				}
-				line = BR.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public void loadLastFileSearch(){
+//		System.out.println("----------------------------loadLastFileSearch---------------------------------");
+//		try {
+//			BufferedReader BR = new BufferedReader(new FileReader(new File("FileList")));
+//			String line = BR.readLine();
+//			while(line != null){
+//				System.out.println("Initial Files: "+ line);
+//				if(line!=null){
+//					allFileList.add(new File(line));
+//				}
+//				line = BR.readLine();
+//			}
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 //	public File[] searchFilesContain(File folder, String name){
 //		System.out.println("----------------------------searchFilesContain---------------------------------");

@@ -5,5 +5,6 @@ public interface PropertiesKey {
 	public static final String RSA_public_key_path = "RSA_public_key_path";
 	public static final String RootPath = "RootPath";
 	public static final String DoubleEncryptionKeyPath = "DoubleEncryptionKeyPath";
+	public static final String KeepFile = "KeepFileList";
 	
 }
